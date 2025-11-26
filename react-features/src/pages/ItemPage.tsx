@@ -1,9 +1,15 @@
 import { useState, useEffect, useTransition } from "react";
 import Card from "../components/Card";
 
+export interface ItemInterface {
+  image: string;
+  title: string;
+  price: number;
+}
+
 const ItemPage = () => {
   const [isPending, startTransition] = useTransition();
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<ItemInterface[]>([]);
 
   useEffect(() => {
     startTransition(async () => {
@@ -25,7 +31,7 @@ const ItemPage = () => {
         Our Products
       </h2>
       {isPending ? (
-        <div>Loadingl...</div>
+        <div>Loading...</div>
       ) : (
         <div className="flex justify-center">
           {data && data?.length > 0 ? (

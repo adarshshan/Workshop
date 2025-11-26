@@ -1,10 +1,6 @@
 import React from "react";
+import type { ItemInterface } from "../pages/ItemPage";
 
-interface ItemInterface {
-  image: string;
-  title: string;
-  price: number;
-}
 interface CardInterface {
   item: ItemInterface;
 }
