@@ -1,5 +1,6 @@
 import { useState, useEffect, useTransition } from "react";
 import Card from "../components/Card";
+import withAuth from "../components/withAuth";
 
 export interface ItemInterface {
   image: string;
@@ -49,4 +50,4 @@ const ItemPage = () => {
   );
 };
 
-export default ItemPage;
+export default withAuth(ItemPage);
