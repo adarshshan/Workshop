@@ -1,5 +1,6 @@
 import { useEffect, useRef, useTransition } from "react";
 import CustomButton from "../components/CustomButton";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 const Products = () => {
   const [isPending, startTransition] = useTransition();
@@ -39,9 +40,11 @@ const Products = () => {
     <div className="h-screen flex justify-center items-center gap-5">
       <div className="">
         <h1 className="text-3xl">Products</h1>
-        <CustomButton ref={buttonRef2} path="/">
-          Go to Home
-        </CustomButton>
+        <ErrorBoundary fallback={<div>Something went wrong!</div>}>
+          <CustomButton ref={buttonRef2} path="/">
+            Go to Home
+          </CustomButton>
+        </ErrorBoundary>
       </div>
     </div>
   );

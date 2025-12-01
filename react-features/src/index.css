@@ -14,3 +14,18 @@ body {
     color: #747bff;
   }
 }
+
+@keyframes fade {
+  from {
+    margin-top: 30px;
+    color: red;
+    opacity: 0;
+  }
+  to {
+    opacity: 100;
+    color: green;
+  }
+}
+.title-h2 {
+  animation: fade 1s ease-in-out;
+}
