@@ -1,5 +1,7 @@
 import { useState, useEffect, useTransition } from "react";
 import Card from "../components/Card";
+import withAuth from "../components/withAuth";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 export interface ItemInterface {
   image: string;
@@ -27,26 +29,28 @@ const ItemPage = () => {
 
   return (
     <div className="w-full">
-      <h2 className="w-full flex justify-center py-2 text-3xl font-bold">
+      <h2 className="title-h2 w-full flex justify-center py-2 text-3xl font-bold">
         Our Products
       </h2>
       {isPending ? (
         <div>Loading...</div>
       ) : (
-        <div className="flex justify-center">
-          {data && data?.length > 0 ? (
-            <div className="flex flex-wrap justify-around py-5 gap-4 w-[80%]">
-              {data?.map((item: any, index: number) => (
-                <Card key={`card-${index}`} item={item} />
-              ))}
-            </div>
-          ) : (
-            <div>No data found!</div>
-          )}
-        </div>
+        <ErrorBoundary fallback={<div>Something went wrong!</div>}>
+          <div className="flex justify-center">
+            {data && data?.length > 0 ? (
+              <div className="flex flex-wrap justify-around py-5 gap-4 w-[80%]">
+                {data?.map((item: any, index: number) => (
+                  <Card key={`card-${index}`} item={item} />
+                ))}
+              </div>
+            ) : (
+              <div>No data found!</div>
+            )}
+          </div>
+        </ErrorBoundary>
       )}
     </div>
   );
 };
 
-export default ItemPage;
+export default withAuth(ItemPage);

@@ -6,17 +6,19 @@ interface CustomButtonInterface {
   path: string;
   ref: any;
 }
-const CustomButton: React.FC<CustomButtonInterface> = ({
-  ref,
-  children,
-  path,
-}) => {
-  const navigate = useNavigate();
-  return (
-    <button ref={ref} onClick={() => navigate(path)}>
-      {children}
-    </button>
-  );
-};
+const CustomButton: React.FC<CustomButtonInterface> = React.memo(
+  ({ ref, children, path }) => {
+    const navigate = useNavigate();
+    return (
+      <button
+        className="bg-yellow-300 p-3 rounded-xl text-black font-semibold hover:bg-green-300"
+        ref={ref}
+        onClick={() => navigate(path)}
+      >
+        {children}
+      </button>
+    );
+  }
+);
 
 export default CustomButton;
