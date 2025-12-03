@@ -1,0 +1,11 @@
+<div class="w-full text-black flex justify-center bg-gray-400">
+  <div *ngIf="loading">Loading...</div>
+  <div *ngIf="!loading" class="w-[90%] px-10 flex flex-wrap gap-3">
+    <div
+      *ngFor="let item of products"
+      class="w-[40vh] min-h-[60vh] rounded-xl shadow-[10px_10px_10px_5px_#ffffff]"
+    >
+      {{ item.title }}
+    </div>
+  </div>
+</div>
