@@ -1,0 +1,20 @@
+<div class="flex flex-wrap w-full">
+  <div *ngIf="loading()" class="text-3xl text-teal-500">Loading...</div>
+
+  <ng-container *ngIf="!loading()">
+    <div
+      *ngFor="let item of products()"
+      class="flex flex-col gap-2 items-center w-[30vw] border p-4 m-2 rounded shadow"
+    >
+      <img [src]="item?.image" [alt]="item?.title" class="w-32 h-32 object-contain mb-2" />
+      <h1 class="text-lg font-bold">{{ item?.title }}</h1>
+      <p class="text-gray-700 text-sm text-center">{{ item?.description }}</p>
+      <p class="text-gray-500 text-xs">Category: {{ item?.category }}</p>
+      <p class="text-blue-600 font-semibold text-md">${{ item?.price }}</p>
+      <div class="flex items-center text-sm">
+        <span class="text-yellow-500 mr-1">⭐</span>
+        <span>{{ item?.rating?.rate }} ({{ item?.rating?.count }} reviews)</span>
+      </div>
+    </div>
+  </ng-container>
+</div>
