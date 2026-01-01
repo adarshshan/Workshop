@@ -4,7 +4,12 @@ import { Tabs } from "expo-router";
 import React from "react";
 import { Image, ImageBackground, Text, View } from "react-native";
 
-const TabIcon = ({ focused, icon, title }) => {
+interface TabIconInterface {
+  focused: boolean;
+  icon: any;
+  title: string;
+}
+const TabIcon = ({ focused, icon, title }: TabIconInterface) => {
   if (focused) {
     return (
       <ImageBackground
