@@ -4,6 +4,7 @@ import Layout from "./layouts/Layout";
 import ItemPage from "./pages/ItemPage";
 
 const Home = lazy(() => import("./pages/Home"));
+const TestPage = lazy(() => import("./pages/TestPage"));
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "item",
         element: <ItemPage />,
+      },
+      {
+        path: "test",
+        element: <TestPage />,
       },
     ],
   },
