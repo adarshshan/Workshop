@@ -1,0 +1,76 @@
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #fce4ec;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  overflow: hidden;
+}
+
+.proposal-container {
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #e91e63;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.yes-button,
+.no-button {
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  margin: 0 10px;
+  transition: all 0.3s ease;
+}
+
+.yes-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.no-button {
+  background-color: #f44336;
+  color: white;
+  position: absolute;
+}
+
+.success-message {
+  text-align: center;
+  animation: scaleIn 0.5s ease-in-out;
+}
+
+.success-message img {
+  margin-top: 20px;
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
